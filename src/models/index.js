@@ -26,6 +26,4 @@ Sala.belongsTo(Departamento, { foreignKey: 'idDepartamento' });
 Sala.hasMany(Cama, { foreignKey: 'idSala' });
 Cachema.belongsTo(Sala, { foreingKey: 'idSala' });
 
-
-
 export { Paciente, Direccion };
