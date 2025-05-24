@@ -6,19 +6,15 @@ const Paciente = sequelize.define(
   {
     id: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
+      allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
       unique: true,
-      allowNull: false,
     },
-    DNI: {
+    dni: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-    },
-    telefono: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     nombreCompleto: {
       type: DataTypes.STRING,
@@ -28,13 +24,25 @@ const Paciente = sequelize.define(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    idDireccion: {
-      type: DataTypes.INTEGER,
+    telefono: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    idContactoEmergencia: {
+    fkIdDireccion: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'direccion',
+        key: 'id',
+      },
+    },
+    fkIdContactoEmergencia: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'ContactoEmergencia',
+        key: 'id',
+      },
     },
   },
   {
