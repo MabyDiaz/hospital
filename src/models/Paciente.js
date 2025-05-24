@@ -1,50 +1,59 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../db/connection.js';
+import { DataTypes } from "sequelize";
+import sequelize from "../db/connection.js";
 
-const Paciente = sequelize.define(
-  'Paciente',
-  {
+const Paciente = sequelize.define('Paciente', {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      unique: true,
-      allowNull: false,
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+        unique: true
     },
-    DNI: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    telefono: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    dni: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     nombreCompleto: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     fechaNacimiento: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
+        type: DataTypes.DATEONLY,
+        allowNull: false
     },
-    idHistorialMedico: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
+    telefono: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    idDireccion: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    fkIdDireccion: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'direccion', 
+          key: 'id'
+        }
     },
-    idContactoEmergencia: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    fkIdHistorialMedico: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'HistorialMedico', 
+          key: 'id'
+        }
     },
-  },
-  {
+    fkIdContactoEmergencia: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'ContactoEmergencia', 
+          key: 'id'
+        }
+    }
+}, {
     tableName: 'Pacientes',
-    timestamps: false,
-  }
+    timestamps: false
+}
 );
 
-export default Paciente;
+export default Paciente
