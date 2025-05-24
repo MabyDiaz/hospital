@@ -34,14 +34,6 @@ const Paciente = sequelize.define('Paciente', {
           key: 'id'
         }
     },
-    fkIdHistorialMedico: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'HistorialMedico', 
-          key: 'id'
-        }
-    },
     fkIdContactoEmergencia: {
         type: DataTypes.INTEGER,
         allowNull: false,

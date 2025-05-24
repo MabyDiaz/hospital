@@ -23,7 +23,22 @@ const EnfermeroXSala = sequelize.define('EnfermeroXSala', {
     type: DataTypes.DATEONLY,
     allowNull: false
     },
-  
+    fkIdSala: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Sala', 
+          key: 'id'
+        }
+    },
+    fkIdEnfermero: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Enfermero', 
+          key: 'id'
+        }
+    },
 }, {
   tableName: 'EnfermeroXSala',
   timestamps: false
