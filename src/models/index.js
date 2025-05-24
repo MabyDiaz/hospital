@@ -5,13 +5,15 @@ import Direccion from './Direccion.js'
 
 
 
-Direccion.hasOne(Paciente, {
-    foreignKey: 'idDireccion'
-})
+Direccion.hasMany(Paciente, {
+    foreignKey: 'fkIdDireccion',
+    as: 'pacientes'
+});
 
 Paciente.belongsTo(Direccion, {
-    foreignKey: 'idDireccion'
-})
+    foreignKey: 'fkIdDireccion',
+    as: 'direccion'
+});
 
 
 export { 

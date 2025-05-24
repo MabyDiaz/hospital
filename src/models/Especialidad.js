@@ -14,7 +14,7 @@ const Especialidad = sequelize.define('Especialidad', {
     allowNull: false
   },
 }, {
-  tableName: 'Enfermero',
+  tableName: 'Especialidades',
   timestamps: false
 });
 

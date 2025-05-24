@@ -40,7 +40,7 @@ const EnfermeroXSala = sequelize.define('EnfermeroXSala', {
         }
     },
 }, {
-  tableName: 'EnfermeroXSala',
+  tableName: 'EnfermerosXSala',
   timestamps: false
 });
 
