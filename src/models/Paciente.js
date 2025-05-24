@@ -28,10 +28,6 @@ const Paciente = sequelize.define(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    idHistorialMedico: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
     idDireccion: {
       type: DataTypes.INTEGER,
       allowNull: false,
