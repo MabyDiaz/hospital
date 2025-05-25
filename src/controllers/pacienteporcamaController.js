@@ -1,13 +1,16 @@
-import { PacientePorCama } from '../models/index.js';
+import PacientePorCama from '../models/PacientePorCama.js';
 
 // Obtener todos los registros de pacientes por cama
-export const getPacientesPorCama = async (req, res) => {
+export const getPacientesPorCamas = async (req, res) => {
   try {
     const registros = await PacientePorCama.findAll();
     res.status(200).json(registros);
   } catch (error) {
-    console.error("Error al obtener pacientes por cama:", error);
-    res.status(500).json({ message: 'Error al obtener pacientes por cama', error: error.message });
+    console.error('Error al obtener pacientes por cama:', error);
+    res.status(500).json({
+      message: 'Error al obtener pacientes por cama',
+      error: error.message,
+    });
   }
 };
 
@@ -22,8 +25,10 @@ export const getPacientePorCamaById = async (req, res) => {
       res.status(404).json({ message: 'Registro no encontrado' });
     }
   } catch (error) {
-    console.error("Error al obtener paciente por cama:", error);
-    res.status(500).json({ message: 'Error al obtener registro', error: error.message });
+    console.error('Error al obtener paciente por cama:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al obtener registro', error: error.message });
   }
 };
 
@@ -33,14 +38,17 @@ export const createPacientePorCama = async (req, res) => {
     const nuevoRegistro = await PacientePorCama.create(req.body);
     res.status(201).json(nuevoRegistro);
   } catch (error) {
-    console.error("Error al crear paciente por cama:", error);
+    console.error('Error al crear paciente por cama:', error);
     if (error.name === 'SequelizeValidationError') {
       return res.status(400).json({
         message: 'Error de validación',
-        errors: error.errors.map(e => e.message)
+        errors: error.errors.map((e) => e.message),
       });
     }
-    res.status(500).json({ message: 'Error al crear paciente por cama', error: error.message });
+    res.status(500).json({
+      message: 'Error al crear paciente por cama',
+      error: error.message,
+    });
   }
 };
 
@@ -54,17 +62,22 @@ export const updatePacientePorCama = async (req, res) => {
       const actualizado = await registro.update(req.body);
       res.status(200).json(actualizado);
     } else {
-      res.status(404).json({ message: 'Registro no encontrado para actualizar' });
+      res
+        .status(404)
+        .json({ message: 'Registro no encontrado para actualizar' });
     }
   } catch (error) {
-    console.error("Error al actualizar paciente por cama:", error);
+    console.error('Error al actualizar paciente por cama:', error);
     if (error.name === 'SequelizeValidationError') {
       return res.status(400).json({
         message: 'Error de validación',
-        errors: error.errors.map(e => e.message)
+        errors: error.errors.map((e) => e.message),
       });
     }
-    res.status(500).json({ message: 'Error al actualizar paciente por cama', error: error.message });
+    res.status(500).json({
+      message: 'Error al actualizar paciente por cama',
+      error: error.message,
+    });
   }
 };
 
@@ -79,7 +92,10 @@ export const deletePacientePorCama = async (req, res) => {
       res.status(404).json({ message: 'Registro no encontrado para eliminar' });
     }
   } catch (error) {
-    console.error("Error al eliminar paciente por cama:", error);
-    res.status(500).json({ message: 'Error al eliminar paciente por cama', error: error.message });
+    console.error('Error al eliminar paciente por cama:', error);
+    res.status(500).json({
+      message: 'Error al eliminar paciente por cama',
+      error: error.message,
+    });
   }
 };

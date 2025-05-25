@@ -5,7 +5,7 @@ import {
   createSala,
   updateSala,
   deleteSala,
-} from '../controllers/sala.controller.js';
+} from '../controllers/salaController.js';
 
 const router = express.Router();
 
