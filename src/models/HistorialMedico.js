@@ -14,7 +14,7 @@ const HistorialMedico = sequelize.define("HistorialMedico", {
         type:DataTypes.INTEGER,
         allowNull:false,
         references:{
-            model: 'Paciente',
+            model: 'pacientes',
             key: 'id'
         },
 

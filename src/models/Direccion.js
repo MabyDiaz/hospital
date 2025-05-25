@@ -16,30 +16,30 @@ const Direccion = sequelize.define(
       allowNull: false,
       unique: true,
     },
-      provincia: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+    provincia: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-      ciudad: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+    ciudad: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-      barrio: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+    barrio: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-      calle: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+    calle: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-      numero: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+    numero: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
   },
   {

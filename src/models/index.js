@@ -12,12 +12,12 @@ import Cama from './Cama.js';
 import PacientePorCama from './PacientePorCama.js';
 
 Direccion.hasMany(Paciente, {
-  foreignKey: 'fkIdDireccion',
+  foreignKey: 'idDireccion',
   as: 'pacientes',
 });
 
 Paciente.belongsTo(Direccion, {
-  foreignKey: 'fkIdDireccion',
+  foreignKey: 'idDireccion',
   as: 'direccion',
 });
 

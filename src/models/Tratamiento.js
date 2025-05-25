@@ -1,52 +1,53 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../db/connection.js";
+import { DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const Tratamiento = sequelize.define("Tratamiento", {
-    id:{
-    type:DataTypes.INTEGER,
-    primaryKey:true,
-    autoIncrement:true,
-    allowNull:false,
-    unique:true
-    }, 
+const Tratamiento = sequelize.define(
+  'Tratamiento',
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+      unique: true,
+    },
     fecha: {
-    type:DataTypes.DATE,
-    allowNull:false,
-    unique: true    
-    },    
-    descripcion:{
-    type:DataTypes.STRING,
-    allowNull:false,
+      type: DataTypes.DATE,
+      allowNull: false,
+      unique: true,
     },
-    esAmbulatorio:{
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
+    descripcion: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    
-    fkIdMedico: {
-        type:DataTypes.INTEGER,
-        allowNull:false,
-        references:{
-            model: 'Medico',
-            key: 'id',
-        },
-        },
+    esAmbulatorio: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
 
-    fkIdHistorialMedico: {
-        type:DataTypes.INTEGER,
-        allowNull:false,
-        references:{
-            model: 'HistorialMedico',
-            key: 'id',
-        },
+    IdMedico: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'medicos',
+        key: 'id',
+      },
+    },
 
+    IdHistorialMedico: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'HistorialMedico',
+        key: 'id',
+      },
     },
-    },
-    
-         {
-            tableName:'tratamientos',
-            timestamps: false,
-         },       
-)
+  },
+
+  {
+    tableName: 'tratamientos',
+    timestamps: false,
+  }
+);
 
 export default Tratamiento;

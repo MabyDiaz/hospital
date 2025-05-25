@@ -23,15 +23,15 @@ const Cita = sequelize.define('Cita', {
     type: DataTypes.TEXT,
     allowNull: true
   },
-  fk_id_paciente:  {
+  idPaciente:  {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: { model: 'paciente', key: 'id' }
   },
-  fk_id_medico: {
+  idMedico: {
     type: DataTypes.INTEGER, allowNull: false,
     references:  {
-      model: 'medico',
+      model: 'medicos',
       key: 'id'
     }
   },

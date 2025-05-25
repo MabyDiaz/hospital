@@ -28,25 +28,25 @@ const Paciente = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    fkIdDireccion: {
+    idDireccion: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'direccion',
+        model: 'direcciones',
         key: 'id',
       },
     },
-    fkIdContactoEmergencia: {
+    idContactoEmergencia: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'ContactoEmergencia',
+        model: 'contactosEmergencias',
         key: 'id',
       },
     },
   },
   {
-    tableName: 'Pacientes',
+    tableName: 'pacientes',
     timestamps: false,
   }
 );
