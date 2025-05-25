@@ -13,16 +13,6 @@ import Sala from './Sala.js';
 import Cama from './Cama.js';
 import PacientePorCama from './PacientePorCama.js';   
 
-Direccion.hasMany(Paciente, {
-  foreignKey: 'fkIdDireccion',
-  as: 'pacientes',
-});
-
-Paciente.belongsTo(Direccion, {
-  foreignKey: 'fkIdDireccion',
-  as: 'direccion',
-});
-
 // Asociación:
 // Entre Hospital y Departamento (1:N) porque
 // un Hospital tiene muchos Departamentos y un Departamento pertenece a un Hospital.
