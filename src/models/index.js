@@ -4,6 +4,8 @@ import Direccion from './Direccion.js';
 import Departamento from './Departamento.js';
 import Sala from './Sala.js';
 import Hospital from './Hospital.js';
+import Tratamiento from './Tratamiento.js';
+import HistorialMedico from './HistorialMedico.js';
 
 Direccion.hasMany(Paciente, {
   foreignKey: 'fkIdDireccion',
@@ -39,4 +41,12 @@ Sala.belongsTo(Departamento, {
   as: 'departamento',
 });
 
-export { Paciente, Direccion, Departamento, Sala, Hospital };
+// Relación HistorialMedico <-> Tratamiento (1:N)
+HistorialMedico.hasMany(Tratamiento, {
+    foreignKey: 'idHistorialMedico',
+});
+Tratamiento.belongsTo(HistorialMedico, {
+    foreignKey: 'idHistorialMedico',
+});
+
+export { Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico };
