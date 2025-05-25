@@ -12,6 +12,7 @@ import Direccion from './Direccion.js';
 import Sala from './Sala.js';
 import Cama from './Cama.js';
 import PacientePorCama from './PacientePorCama.js';   
+import Medico from './Medico.js';
 
 // Asociación:
 // Entre Hospital y Departamento (1:N) porque
@@ -114,4 +115,4 @@ PacientePorCama.belongsTo(Cama, {
   foreignKey: 'idCama' 
 });
 
-export { Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico, ContactoEmergencia, Cama, PacientePorCama };
+export { Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico, ContactoEmergencia, Cama, PacientePorCama, Medico };
