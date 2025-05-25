@@ -17,7 +17,7 @@ const Hospital = sequelize.define(
     },
   },
   {
-    tableName: 'Hospitales',
+    tableName: 'hospitales',
     timestamps: false,
   }
 );

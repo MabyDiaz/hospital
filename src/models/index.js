@@ -17,7 +17,7 @@ Paciente.belongsTo(Direccion, {
 
 // Asociación:
 // Entre Hospital y Departamento (1:N) porque
-// un Hospital tiene muchos Departamentos y Un Departamento pertenece a un Hospital 
+// un Hospital tiene muchos Departamentos y un Departamento pertenece a un Hospital.
 Hospital.hasMany(Departamento, {
   foreignKey: 'idHospital',
   as: 'departamentos',
@@ -27,7 +27,9 @@ Departamento.belongsTo(Hospital, {
   as: 'hospital',
 });
 
-// Asociación: Departamento → Sala (1:N)
+// Asociación:
+// entre Departamento y Sala (1:N) porque
+// un Departamento tiene muchas Salas y una Sala pertenece a un Departamento.
 Departamento.hasMany(Sala, {
   foreignKey: 'idDepartamento',
   as: 'salas',

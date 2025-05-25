@@ -38,7 +38,7 @@ const Cita = sequelize.define('Cita', {
   fk_id_departamento: {
     type: DataTypes.INTEGER, allowNull: false,
     references:  {
-      model: 'departamento',
+      model: 'departamentos',
       key: 'id'
     }
   }
