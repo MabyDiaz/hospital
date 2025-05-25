@@ -6,15 +6,17 @@ const Medico = sequelize.define(
   {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+      unique: true,
+      allowNull: false,
     },
-    nro_matricula: {
+    nroMatricula: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    nombre_completo: {
+    nombreCompleto: {
       type: DataTypes.STRING,
       allowNull: false,
     },

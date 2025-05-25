@@ -1,21 +1,25 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/connection.js';
 
-const Especialidad = sequelize.define('Especialidad', {
+const Especialidad = sequelize.define(
+  'Especialidad',
+  {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-        unique: true
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+      unique: true,
     },
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-}, {
-  tableName: 'specialidades',
-  timestamps: false
-});
+  {
+    tableName: 'especialidades',
+    timestamps: false,
+  }
+);
 
 export default Especialidad;

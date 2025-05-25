@@ -25,7 +25,7 @@ const Tratamiento = sequelize.define(
       allowNull: false,
     },
 
-    IdMedico: {
+    idMedico: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -34,11 +34,11 @@ const Tratamiento = sequelize.define(
       },
     },
 
-    IdHistorialMedico: {
+    idHistorialMedico: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'HistorialMedico',
+        model: 'historialesMedicos',
         key: 'id',
       },
     },

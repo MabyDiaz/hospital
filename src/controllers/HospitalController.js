@@ -4,7 +4,7 @@ import Departamento from '../models/Departamento.js';
 export const getHospitales = async (req, res) => {
   try {
     const hospitales = await Hospital.findAll({
-      include: { model: Departamento, as: 'departamentos' },
+      include: { model: Departamento },
     });
     res.json(hospitales);
   } catch (error) {
@@ -16,7 +16,7 @@ export const getHospitalById = async (req, res) => {
   try {
     const { id } = req.params;
     const hospital = await Hospital.findByPk(id, {
-      include: { model: Departamento, as: 'departamentos' },
+      include: { model: Departamento },
     });
 
     if (!hospital) {

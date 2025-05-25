@@ -4,7 +4,7 @@ import Departamento from '../models/Departamento.js';
 export const getSalas = async (req, res) => {
   try {
     const salas = await Sala.findAll({
-      include: { model: Departamento, as: 'departamento' },
+      include: { model: Departamento },
     });
     res.json(salas);
   } catch (error) {
@@ -16,7 +16,7 @@ export const getSalaById = async (req, res) => {
   try {
     const { id } = req.params;
     const sala = await Sala.findByPk(id, {
-      include: { model: Departamento, as: 'departamento' },
+      include: { model: Departamento },
     });
 
     if (!sala) {

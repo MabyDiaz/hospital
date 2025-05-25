@@ -10,10 +10,8 @@ const Enfermero = sequelize.define('Enfermero', {
         unique: true
     },
   numeroLegajo: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true
+    type: DataTypes.STRING,
+    allowNull: false,   
   },
   nombreCompleto: {
     type: DataTypes.STRING,

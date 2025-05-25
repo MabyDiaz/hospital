@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db/connection.js';
 
-const EnfermeroXSala = sequelize.define(
-  'EnfermeroXSala',
+const EnfermeroPorSala = sequelize.define(
+  'EnfermeroPorSala',
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,7 @@ const EnfermeroXSala = sequelize.define(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    fkIdSala: {
+    idSala: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -33,7 +33,7 @@ const EnfermeroXSala = sequelize.define(
         key: 'id',
       },
     },
-    fkIdEnfermero: {
+    idEnfermero: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -43,9 +43,9 @@ const EnfermeroXSala = sequelize.define(
     },
   },
   {
-    tableName: 'enfermerosxsala',
+    tableName: 'enfermerosporsalas',
     timestamps: false,
   }
 );
 
-export default EnfermeroXSala;
+export default EnfermeroPorSala;
