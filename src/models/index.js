@@ -7,7 +7,7 @@ import Hospital from './Hospital.js';
 import Tratamiento from './Tratamiento.js';
 import HistorialMedico from './HistorialMedico.js';
 import ContactoEmergencia from './ContactoEmergencia.js';
-import Sala from './Sala.js';
+
 import Cama from './Cama.js';
 import PacientePorCama from './PacientePorCama.js';   
 import Medico from './Medico.js';
