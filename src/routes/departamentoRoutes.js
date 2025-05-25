@@ -9,10 +9,10 @@ import {
 
 const router = Router();
 
-router.get('/', getDepartamentos);
-router.get('/:id', getDepartamentoById);
-router.post('/', createDepartamento);
-router.put('/:id', updateDepartamento);
-router.delete('/:id', deleteDepartamento);
+router.get('/', getDepartamentos); // Obtener todos los departamentos
+router.get('/:id', getDepartamentoById); // Obtener un departamento por ID
+router.post('/', createDepartamento); // Crear un nuevo departamento
+router.put('/:id', updateDepartamento); // Actualizar un departamento existente
+router.delete('/:id', deleteDepartamento); // Eliminar un departamento
 
 export default router;

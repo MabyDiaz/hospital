@@ -15,6 +15,14 @@ const Sala = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    idDepartamento: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'departamentos',
+        key: 'id',
+      },
+    },
   },
   {
     tableName: 'salas',

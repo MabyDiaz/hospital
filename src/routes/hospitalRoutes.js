@@ -9,10 +9,10 @@ import {
 
 const router = Router();
 
-router.get('/', getHospitales); // obtener todos los hospitales
-router.get('/:id', getHospitalById); // obtener un hospital
-router.post('/', createHospital); // crear un hospital
-router.put('/:id', updateHospital); // modificar un hospital
-router.delete('/:id', deleteHospital); // eliminar un hospital
+router.get('/', getHospitales);
+router.get('/:id', getHospitalById);
+router.post('/', createHospital);
+router.put('/:id', updateHospital);
+router.delete('/:id', deleteHospital);
 
 export default router;
