@@ -24,7 +24,7 @@ const Enfermero = sequelize.define('Enfermero', {
     allowNull: false
   }
 }, {
-  tableName: 'Enfermero',
+  tableName: 'enfermeros',
   timestamps: false
 });
 

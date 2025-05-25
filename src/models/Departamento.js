@@ -23,13 +23,13 @@ const Departamento = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Hospitales',
+        model: 'hospitales',
         key: 'id',
       },
     },
   },
   {
-    tableName: 'Departamentos',
+    tableName: 'departamentos',
     timestamps: false,
   }
 );
