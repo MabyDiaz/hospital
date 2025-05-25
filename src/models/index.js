@@ -55,6 +55,22 @@ Tratamiento.belongsTo(HistorialMedico, {
     foreignKey: 'idHistorialMedico',
 });
 
+//relacion Paciente - historialMedico (1-1)
+Paciente.hasOne(HistorialMedico, {
+    foreignKey: 'idPaciente',
+});
+HistorialMedico.belongsTo(Paciente, {
+    foreignKey: 'idPaciente',
+});
+
+//relacion Medico - Tratamiento (1-N)
+Medico.hasMany(Tratamiento, {
+    foreignKey: 'idMedico',
+});
+Tratamiento.belongsTo(Medico, {
+    foreignKey: 'idMedico',
+});
+
 // ContactoEmergencia 1:N Paciente
 
 ContactoEmergencia.hasMany(Paciente, {
