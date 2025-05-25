@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { sequelize } from './src/models/index.js';
 
-//Importar rutas
-// import routerPrincipal from './src/routes/index.js';
+// Importar rutas
+import routerPrincipal from './src/routes/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

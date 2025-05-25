@@ -7,10 +7,27 @@ import Hospital from './Hospital.js';
 import Tratamiento from './Tratamiento.js';
 import HistorialMedico from './HistorialMedico.js';
 import ContactoEmergencia from './ContactoEmergencia.js';
+<<<<<<< HEAD
 
 import Cama from './Cama.js';
 import PacientePorCama from './PacientePorCama.js';   
 import Medico from './Medico.js';
+=======
+import Direccion from './Direccion.js';
+import Sala from './Sala.js';
+import Cama from './Cama.js';
+import PacientePorCama from './PacientePorCama.js';
+
+Direccion.hasMany(Paciente, {
+  foreignKey: 'fkIdDireccion',
+  as: 'pacientes',
+});
+
+Paciente.belongsTo(Direccion, {
+  foreignKey: 'fkIdDireccion',
+  as: 'direccion',
+});
+>>>>>>> 64ca701 (update)
 
 // Asociación:
 // Entre Hospital y Departamento (1:N) porque
@@ -38,10 +55,10 @@ Sala.belongsTo(Departamento, {
 
 // Relación HistorialMedico <-> Tratamiento (1:N)
 HistorialMedico.hasMany(Tratamiento, {
-    foreignKey: 'idHistorialMedico',
+  foreignKey: 'idHistorialMedico',
 });
 Tratamiento.belongsTo(HistorialMedico, {
-    foreignKey: 'idHistorialMedico',
+  foreignKey: 'idHistorialMedico',
 });
 
 //relacion Paciente - historialMedico (1-1)
@@ -61,56 +78,70 @@ Tratamiento.belongsTo(Medico, {
 });
 
 // ContactoEmergencia 1:N Paciente
-
 ContactoEmergencia.hasMany(Paciente, {
-  foreignKey: 'idContactoEmergencia'
+  foreignKey: 'idContactoEmergencia',
 });
 
 Paciente.belongsTo(ContactoEmergencia, {
-  foreignKey: 'idContactoEmergencia'
+  foreignKey: 'idContactoEmergencia',
 });
 
 // Dirección 1:N Paciente
 Direccion.hasMany(Paciente, {
   foreignKey: 'idDireccion',
-  sourceKey: 'id'
+  sourceKey: 'id',
 });
 
 Paciente.belongsTo(Direccion, {
   foreignKey: 'idDireccion',
-  targetKey: 'id'
+  targetKey: 'id',
 });
 
 // Sala 1:N Cama
-Sala.hasMany(Cama, { 
+Sala.hasMany(Cama, {
   foreignKey: 'idSala',
-  sourceKey: 'id' 
-})
+  sourceKey: 'id',
+});
 
-Cama.belongsTo(Sala, { 
+Cama.belongsTo(Sala, {
   foreignKey: 'idSala',
-  targetKey: 'id' 
-})
+  targetKey: 'id',
+});
 
 // Asociación N:M entre Paciente y Cama a través de PacientePorCama
 Paciente.belongsToMany(Cama, {
   through: PacientePorCama,
   foreignKey: 'idPaciente',
-  otherKey: 'idCama'
+  otherKey: 'idCama',
 });
 
 Cama.belongsToMany(Paciente, {
   through: PacientePorCama,
   foreignKey: 'idCama',
-  otherKey: 'idPaciente'
+  otherKey: 'idPaciente',
 });
 
 // Asociaciones inversas desde la tabla intermedia (útiles para includes)
-PacientePorCama.belongsTo(Paciente, { 
-  foreignKey: 'idPaciente' 
+PacientePorCama.belongsTo(Paciente, {
+  foreignKey: 'idPaciente',
 });
-PacientePorCama.belongsTo(Cama, { 
-  foreignKey: 'idCama' 
+PacientePorCama.belongsTo(Cama, {
+  foreignKey: 'idCama',
 });
 
+<<<<<<< HEAD
 export {sequelize, Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico, ContactoEmergencia, Cama, PacientePorCama, Medico };
+=======
+export {
+  Paciente,
+  Direccion,
+  Departamento,
+  Sala,
+  Hospital,
+  Tratamiento,
+  HistorialMedico,
+  ContactoEmergencia,
+  Cama,
+  PacientePorCama,
+};
+>>>>>>> 64ca701 (update)
