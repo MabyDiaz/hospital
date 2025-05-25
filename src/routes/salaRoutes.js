@@ -5,7 +5,7 @@ import {
   createSala,
   updateSala,
   deleteSala,
-} from '../controllers/SalaController.js';
+} from '../controllers/salaController.js';
 
 const router = Router();
 
