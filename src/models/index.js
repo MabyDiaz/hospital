@@ -113,4 +113,4 @@ PacientePorCama.belongsTo(Cama, {
   foreignKey: 'idCama' 
 });
 
-export { Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico, ContactoEmergencia, Cama, PacientePorCama, Medico };
+export {sequelize, Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico, ContactoEmergencia, Cama, PacientePorCama, Medico };
