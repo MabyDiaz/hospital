@@ -7,14 +7,7 @@ import Hospital from './Hospital.js';
 import Tratamiento from './Tratamiento.js';
 import HistorialMedico from './HistorialMedico.js';
 import ContactoEmergencia from './ContactoEmergencia.js';
-<<<<<<< HEAD
-
-import Cama from './Cama.js';
-import PacientePorCama from './PacientePorCama.js';   
 import Medico from './Medico.js';
-=======
-import Direccion from './Direccion.js';
-import Sala from './Sala.js';
 import Cama from './Cama.js';
 import PacientePorCama from './PacientePorCama.js';
 
@@ -27,11 +20,9 @@ Paciente.belongsTo(Direccion, {
   foreignKey: 'fkIdDireccion',
   as: 'direccion',
 });
->>>>>>> 64ca701 (update)
 
 // Asociación:
-// Entre Hospital y Departamento (1:N) porque
-// un Hospital tiene muchos Departamentos y un Departamento pertenece a un Hospital.
+// Hospital - Departamento (1:N)
 Hospital.hasMany(Departamento, {
   foreignKey: 'idHospital',
   as: 'departamentos',
@@ -42,8 +33,7 @@ Departamento.belongsTo(Hospital, {
 });
 
 // Asociación:
-// entre Departamento y Sala (1:N) porque
-// un Departamento tiene muchas Salas y una Sala pertenece a un Departamento.
+// Departamento - Sala (1:N)
 Departamento.hasMany(Sala, {
   foreignKey: 'idDepartamento',
   as: 'salas',
@@ -63,18 +53,18 @@ Tratamiento.belongsTo(HistorialMedico, {
 
 //relacion Paciente - historialMedico (1-1)
 Paciente.hasOne(HistorialMedico, {
-    foreignKey: 'idPaciente',
+  foreignKey: 'idPaciente',
 });
 HistorialMedico.belongsTo(Paciente, {
-    foreignKey: 'idPaciente',
+  foreignKey: 'idPaciente',
 });
 
 //relacion Medico - Tratamiento (1-N)
 Medico.hasMany(Tratamiento, {
-    foreignKey: 'idMedico',
+  foreignKey: 'idMedico',
 });
 Tratamiento.belongsTo(Medico, {
-    foreignKey: 'idMedico',
+  foreignKey: 'idMedico',
 });
 
 // ContactoEmergencia 1:N Paciente
@@ -129,10 +119,8 @@ PacientePorCama.belongsTo(Cama, {
   foreignKey: 'idCama',
 });
 
-<<<<<<< HEAD
-export {sequelize, Paciente, Direccion, Departamento, Sala, Hospital, Tratamiento, HistorialMedico, ContactoEmergencia, Cama, PacientePorCama, Medico };
-=======
 export {
+  sequelize,
   Paciente,
   Direccion,
   Departamento,
@@ -143,5 +131,5 @@ export {
   ContactoEmergencia,
   Cama,
   PacientePorCama,
+  Medico,
 };
->>>>>>> 64ca701 (update)

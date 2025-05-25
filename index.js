@@ -2,8 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import { sequelize } from './src/models/index.js';
 
+<<<<<<< HEAD
 // Importar rutas
 import routerPrincipal from './src/routes/index.js';
+=======
+import apiRoutes from './src/routes/index.js'; // Importa el index de rutas agrupadas
+
+>>>>>>> 92bba70e866063da3b963f61582bac9732901328
 
 const app = express();
 const PORT = process.env.PORT || 3000;

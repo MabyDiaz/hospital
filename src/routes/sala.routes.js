@@ -1,13 +1,13 @@
-import { Router } from 'express';
+import express from 'express';
 import {
   getSalas,
   getSalaById,
   createSala,
   updateSala,
   deleteSala,
-} from '../controllers/salaController.js';
+} from '../controllers/sala.controller.js';
 
-const router = Router();
+const router = express.Router();
 
 router.get('/', getSalas);
 router.get('/:id', getSalaById);
