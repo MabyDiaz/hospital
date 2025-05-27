@@ -14,7 +14,6 @@ const Paciente = sequelize.define(
     dni: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     nombreCompleto: {
       type: DataTypes.STRING,
