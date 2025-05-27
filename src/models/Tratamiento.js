@@ -14,7 +14,6 @@ const Tratamiento = sequelize.define(
     fecha: {
       type: DataTypes.DATE,
       allowNull: false,
-      unique: true,
     },
     descripcion: {
       type: DataTypes.STRING,

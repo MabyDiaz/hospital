@@ -6,7 +6,7 @@ export const getCamas = async (req, res) => {
     const camas = await Cama.findAll({
       include: {
         model: Sala,
-        attributes: ['id', 'nombreONumero'],
+        attributes: ['id', 'numeroCama'],
       },
     });
     res.status(200).json(camas);
@@ -25,7 +25,7 @@ export const getCamaById = async (req, res) => {
     const cama = await Cama.findByPk(id, {
       include: {
         model: Sala,
-        attributes: ['id', 'nombreONumero'],
+        attributes: ['id', 'numeroCama'],
       },
     });
 

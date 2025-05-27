@@ -22,8 +22,8 @@ export const getHistorialMedico = async (req, res) => {
 
 export const getHistorialMedicoById = async (req, res) => {
   try {
-    const { cuit } = req.params;
-    const historialMedico = await HistorialMedico.findByPk(Id, {
+    const { id } = req.params;
+    const historialMedico = await HistorialMedico.findByPk(id, {
       include: [
         {
           model: Paciente,
