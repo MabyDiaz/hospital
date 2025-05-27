@@ -1,4 +1,4 @@
-import Especialidad from '../models/Especialidad';
+import Especialidad from '../models/Especialidad.js';
 
 export const getAll = async (req, res) => {
   try {
