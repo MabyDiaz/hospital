@@ -1,18 +1,18 @@
 import express from 'express';
 import {
-  getAll,
-  getById,
-  create,
-  update,
-  remove
+  getEnfermeroPorSala,
+  getEnfermeroPorSalaById,
+  createEnfermeroPorSala,
+  updateEnfermeroPorSala,
+  deleteEnfermeroPorSala
 } from '../controllers/enfermeroPorSalaController.js';
 
 const router = express.Router();
 
-router.get('/', getAll);
-router.get('/:id', getById);
-router.post('/', create);
-router.put('/:id', update);
-router.delete('/:id', remove);
+router.get('/', getEnfermeroPorSala);
+router.get('/:id', getEnfermeroPorSalaById);
+router.post('/', createEnfermeroPorSala);
+router.put('/:id', updateEnfermeroPorSala);
+router.delete('/:id', deleteEnfermeroPorSala);
 
 export default router;
