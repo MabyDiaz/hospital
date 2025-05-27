@@ -5,7 +5,7 @@ import {
   createHospital,
   updateHospital,
   deleteHospital,
-} from '../controllers/HospitalController.js';
+} from '../controllers/hospitalController.js';
 
 const router = Router();
 

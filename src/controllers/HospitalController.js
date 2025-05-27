@@ -31,17 +31,23 @@ export const getHospitalById = async (req, res) => {
 
 export const createHospital = async (req, res) => {
   try {
-    const { nombre } = req.body;
-
-    if (!nombre) {
-      return res.status(400).json({ message: 'El nombre es obligatorio' });
-    }
-
-    const nuevoHospital = await Hospital.create({ nombre });
+    const nuevoHospital = await Hospital.create(req.body);
 
     res.status(201).json(nuevoHospital);
   } catch (error) {
-    res.status(500).json({ message: 'Error al crear el hospital', error });
+    console.error('Error al crear un hospital:', error);
+    if (
+      error.name === 'SequelizeValidationError' ||
+      error.name === 'SequelizeUniqueConstraintError'
+    ) {
+      return res.status(400).json({
+        message: 'Error de validación',
+        errors: error.errors.map((e) => e.message),
+      });
+    }
+    res
+      .status(500)
+      .json({ message: 'Error interno del servidor', error: error.message });
   }
 };
 
