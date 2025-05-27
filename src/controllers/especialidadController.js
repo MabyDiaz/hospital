@@ -1,0 +1,52 @@
+import Especialidad from '../models/Especialidad';
+
+export const getAll = async (req, res) => {
+  try {
+    const data = await Especialidad.findAll();
+    res.json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+};
+
+export const getById = async (req, res) => {
+  try {
+    const item = await Especialidad.findByPk(req.params.id);
+    item ? res.json(item) : res.status(404).send('No encontrado');
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+};
+
+export const create = async (req, res) => {
+  try {
+    const nuevo = await Especialidad.create(req.body);
+    res.status(201).json(nuevo);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+};
+
+export const update = async (req, res) => {
+  try {
+    const item = await Especialidad.findByPk(req.params.id);
+    if (!item) return res.status(404).send('No encontrado');
+
+    await item.update(req.body);
+    res.json(item);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+};
+
+export const remove = async (req, res) => {
+  try {
+    const item = await Especialidad.findByPk(req.params.id);
+    if (!item) return res.status(404).send('No encontrado');
+
+    await item.destroy();
+    res.sendStatus(204);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+};

@@ -185,5 +185,7 @@ export {
   PacientePorCama,
   Medico,
   Especialidad,
-  Cita,
+    Cita,
+    Enfermero,
+  EnfermeroPorSala,
 };
