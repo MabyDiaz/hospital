@@ -8,11 +8,11 @@ export const getAll = async (req, res) => {
       include: [
         {
           model: Enfermero,
-          attributes: ['id', 'nombre', 'apellido'] // seleccioná solo los campos que quieras
+          attributes: ['id', 'nombre', 'apellido'] 
         },
         {
           model: Sala,
-          attributes: ['id', 'nombre'] // idem
+          attributes: ['id', 'nombre'] 
         }
       ]
     });
