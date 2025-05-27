@@ -6,13 +6,15 @@ export const getCamas = async (req, res) => {
     const camas = await Cama.findAll({
       include: {
         model: Sala,
-        attributes: ['id', 'nombre'], 
+        attributes: ['id', 'nombreONumero'],
       },
     });
     res.status(200).json(camas);
   } catch (error) {
-    console.error("Error al obtener camas:", error);
-    res.status(500).json({ message: 'Error al obtener camas', error: error.message });
+    console.error('Error al obtener camas:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al obtener camas', error: error.message });
   }
 };
 
@@ -23,7 +25,7 @@ export const getCamaById = async (req, res) => {
     const cama = await Cama.findByPk(id, {
       include: {
         model: Sala,
-        attributes: ['id', 'nombre'],
+        attributes: ['id', 'nombreONumero'],
       },
     });
 
@@ -33,8 +35,10 @@ export const getCamaById = async (req, res) => {
       res.status(404).json({ message: 'Cama no encontrada' });
     }
   } catch (error) {
-    console.error("Error al obtener cama por ID:", error);
-    res.status(500).json({ message: 'Error al obtener cama', error: error.message });
+    console.error('Error al obtener cama por ID:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al obtener cama', error: error.message });
   }
 };
 
@@ -44,14 +48,19 @@ export const createCama = async (req, res) => {
     const nuevaCama = await Cama.create(req.body);
     res.status(201).json(nuevaCama);
   } catch (error) {
-    console.error("Error al crear cama:", error);
-    if (error.name === 'SequelizeValidationError' || error.name === 'SequelizeUniqueConstraintError') {
+    console.error('Error al crear cama:', error);
+    if (
+      error.name === 'SequelizeValidationError' ||
+      error.name === 'SequelizeUniqueConstraintError'
+    ) {
       return res.status(400).json({
         message: 'Error de validación',
-        errors: error.errors.map(e => e.message),
+        errors: error.errors.map((e) => e.message),
       });
     }
-    res.status(500).json({ message: 'Error al crear cama', error: error.message });
+    res
+      .status(500)
+      .json({ message: 'Error al crear cama', error: error.message });
   }
 };
 
@@ -70,14 +79,16 @@ export const updateCama = async (req, res) => {
       res.status(404).json({ message: 'Cama no encontrada para actualizar' });
     }
   } catch (error) {
-    console.error("Error al actualizar cama:", error);
+    console.error('Error al actualizar cama:', error);
     if (error.name === 'SequelizeValidationError') {
       return res.status(400).json({
         message: 'Error de validación',
-        errors: error.errors.map(e => e.message),
+        errors: error.errors.map((e) => e.message),
       });
     }
-    res.status(500).json({ message: 'Error interno del servidor', error: error.message });
+    res
+      .status(500)
+      .json({ message: 'Error interno del servidor', error: error.message });
   }
 };
 
@@ -93,7 +104,9 @@ export const deleteCama = async (req, res) => {
       res.status(404).json({ message: 'Cama no encontrada para eliminar' });
     }
   } catch (error) {
-    console.error("Error al eliminar cama:", error);
-    res.status(500).json({ message: 'Error al eliminar cama', error: error.message });
+    console.error('Error al eliminar cama:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al eliminar cama', error: error.message });
   }
 };
