@@ -17,7 +17,7 @@ import citaRoutes from './cita.routes.js';
 
 const router = Router();
 
-router.use('/departamentos', departamentoRoutes);
+router.use('/departamentos', departamentoRoutes); // monta las rutas definidas en router
 router.use('/hospitales', hospitalRoutes);
 router.use('/salas', salaRoutes);
 router.use('/camas', camaRoutes);

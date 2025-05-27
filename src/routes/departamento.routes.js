@@ -9,7 +9,7 @@ import {
 
 const router = Router();
 
-router.get('/', getDepartamentos);
+router.get('/', getDepartamentos); // monta las rutas definidas en router
 router.get('/:id', getDepartamentoById);
 router.post('/', createDepartamento);
 router.put('/:id', updateDepartamento);
