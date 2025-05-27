@@ -6,8 +6,10 @@ export const getDirecciones = async (req, res) => {
     const direcciones = await Direccion.findAll();
     res.status(200).json(direcciones);
   } catch (error) {
-    console.error("Error al obtener direcciones:", error);
-    res.status(500).json({ message: 'Error al obtener direcciones', error: error.message });
+    console.error('Error al obtener direcciones:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al obtener direcciones', error: error.message });
   }
 };
 
@@ -22,25 +24,30 @@ export const getDireccionById = async (req, res) => {
       res.status(404).json({ message: 'Dirección no encontrada' });
     }
   } catch (error) {
-    console.error("Error al obtener dirección:", error);
-    res.status(500).json({ message: 'Error al obtener dirección', error: error.message });
+    console.error('Error al obtener dirección:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al obtener dirección', error: error.message });
   }
 };
 
 // Crear una nueva dirección
 export const createDireccion = async (req, res) => {
   try {
+    console.log('Datos recibidos:', req.body);
     const nuevaDireccion = await Direccion.create(req.body);
     res.status(201).json(nuevaDireccion);
   } catch (error) {
-    console.error("Error al crear dirección:", error);
+    console.error('Error al crear dirección:', error);
     if (error.name === 'SequelizeValidationError') {
       return res.status(400).json({
         message: 'Error de validación',
-        errors: error.errors.map(e => e.message)
+        errors: error.errors.map((e) => e.message),
       });
     }
-    res.status(500).json({ message: 'Error al crear dirección', error: error.message });
+    res
+      .status(500)
+      .json({ message: 'Error al crear dirección', error: error.message });
   }
 };
 
@@ -54,17 +61,21 @@ export const updateDireccion = async (req, res) => {
       const actualizada = await direccion.update(req.body);
       res.status(200).json(actualizada);
     } else {
-      res.status(404).json({ message: 'Dirección no encontrada para actualizar' });
+      res
+        .status(404)
+        .json({ message: 'Dirección no encontrada para actualizar' });
     }
   } catch (error) {
-    console.error("Error al actualizar dirección:", error);
+    console.error('Error al actualizar dirección:', error);
     if (error.name === 'SequelizeValidationError') {
       return res.status(400).json({
         message: 'Error de validación',
-        errors: error.errors.map(e => e.message)
+        errors: error.errors.map((e) => e.message),
       });
     }
-    res.status(500).json({ message: 'Error al actualizar dirección', error: error.message });
+    res
+      .status(500)
+      .json({ message: 'Error al actualizar dirección', error: error.message });
   }
 };
 
@@ -76,10 +87,14 @@ export const deleteDireccion = async (req, res) => {
     if (resultado > 0) {
       res.status(200).json({ message: 'Dirección eliminada exitosamente' });
     } else {
-      res.status(404).json({ message: 'Dirección no encontrada para eliminar' });
+      res
+        .status(404)
+        .json({ message: 'Dirección no encontrada para eliminar' });
     }
   } catch (error) {
-    console.error("Error al eliminar dirección:", error);
-    res.status(500).json({ message: 'Error al eliminar dirección', error: error.message });
+    console.error('Error al eliminar dirección:', error);
+    res
+      .status(500)
+      .json({ message: 'Error al eliminar dirección', error: error.message });
   }
 };
