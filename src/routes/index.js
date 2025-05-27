@@ -12,9 +12,13 @@ import historialMedicoRoutes from './historialMedico.routes.js';
 import enfermeroRoutes from './enfermero.routes.js';
 import enfermeroPorSalaRoutes from './enfermeroporsala.routes.js';
 import especialidadRoutes from './especialidad.routes.js';
+<<<<<<< HEAD
 import medicosRoutes from './medico.routes.js';
 import citaRoutes from './cita.routes.js';
 
+=======
+import paciente from './paciente.routes.js';
+>>>>>>> ec9d91f (-)
 const router = Router();
 
 router.use('/departamentos', departamentoRoutes);
@@ -25,6 +29,7 @@ router.use('/contactosemergencias', contactoEmergenciaRoutes);
 router.use('/direcciones', direccionRoutes);
 router.use('/pacientes', pacienteRoutes);
 router.use('/pacientesporcamas', pacientePorCamaRoutes);
+router.use('/pacientes', paciente);
 router.use('/tratamiento', tratamientoRoutes);
 router.use('/historialMedico', historialMedicoRoutes);
 router.use('/enfermeros', enfermeroRoutes);
