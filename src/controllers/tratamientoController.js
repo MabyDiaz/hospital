@@ -25,8 +25,8 @@ export const getTratamientos = async (req, res) => {
 
 export const getTratamientoById = async (req, res) => {
   try {
-    const { cuit } = req.params;
-    const tratamiento = await Tratamiento.findByPk(Id, {
+    const { id } = req.params;
+    const tratamiento = await Tratamiento.findByPk(id, {
       include: [
         {
           model: HistorialMedico,
