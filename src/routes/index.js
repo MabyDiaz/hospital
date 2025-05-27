@@ -26,7 +26,7 @@ router.use('/direcciones', direccionRoutes);
 router.use('/pacientes', pacienteRoutes);
 router.use('/pacientesporcamas', pacientePorCamaRoutes);
 router.use('/tratamiento', tratamientoRoutes);
-router.use('/historialMedico', historialMedicoRoutes);
+router.use('/historialesMedicos', historialMedicoRoutes);
 router.use('/enfermeros', enfermeroRoutes);
 router.use('/enfermerosporsala', enfermeroPorSalaRoutes);
 router.use('/especialidades', especialidadRoutes);
