@@ -12,13 +12,9 @@ import historialMedicoRoutes from './historialMedico.routes.js';
 import enfermeroRoutes from './enfermero.routes.js';
 import enfermeroPorSalaRoutes from './enfermeroporsala.routes.js';
 import especialidadRoutes from './especialidad.routes.js';
-<<<<<<< HEAD
 import medicosRoutes from './medico.routes.js';
 import citaRoutes from './cita.routes.js';
 
-=======
-import paciente from './paciente.routes.js';
->>>>>>> ec9d91f (-)
 const router = Router();
 
 router.use('/departamentos', departamentoRoutes);
