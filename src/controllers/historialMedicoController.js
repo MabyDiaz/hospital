@@ -1,5 +1,5 @@
-import { HistorialMedico } from "../models/HistorialMedico.js";
-import { Paciente } from "../models/Paciente.js";
+import HistorialMedico from '../models/HistorialMedico.js';
+import Paciente from '../models/Paciente.js';
 
 export const getHistorialMedico = async (req, res) => {
   try {
@@ -8,13 +8,15 @@ export const getHistorialMedico = async (req, res) => {
         {
           model: Paciente,
           attributes: ['id'],
-        },        
+        },
       ],
     });
 
     res.status(200).json(historialMedico);
   } catch (error) {
-    res.status(500).json({ error: 'Error al intentar obtener Historial Medico' });
+    res
+      .status(500)
+      .json({ error: 'Error al intentar obtener Historial Medico' });
   }
 };
 
@@ -27,7 +29,6 @@ export const getHistorialMedicoById = async (req, res) => {
           model: Paciente,
           attributes: ['id'],
         },
-        
       ],
     });
 
@@ -51,7 +52,6 @@ export const createHistorialMedico = async (req, res) => {
   }
 };
 
-
 // modificar
 export const updateHistorialMedico = async (req, res) => {
   try {
@@ -60,13 +60,15 @@ export const updateHistorialMedico = async (req, res) => {
 
     const historialMedico = await HistorialMedico.findByPk(id);
     if (historialMedico) {
-            const historialMedicoActualizado = await historialMedico.update({
-              idPaciente
-            });
-            res.status(200).json(historialMedicoActualizado);
-        } else {
-            res.status(404).json({ message: 'Cliente no encontrado para actualizar' });
-        }
+      const historialMedicoActualizado = await historialMedico.update({
+        idPaciente,
+      });
+      res.status(200).json(historialMedicoActualizado);
+    } else {
+      res
+        .status(404)
+        .json({ message: 'Cliente no encontrado para actualizar' });
+    }
   } catch (error) {
     res.status(400).json({ error: 'Error al actualizar Historial Medico' });
   }
@@ -79,14 +81,19 @@ export const deleteHistorialMedico = async (req, res) => {
     const historialMedico = await HistorialMedico.findByPk(id);
 
     if (!historialMedico) {
-      return res.status(404).json({ message: 'Historial Medico no encontrado' });
+      return res
+        .status(404)
+        .json({ message: 'Historial Medico no encontrado' });
     }
 
     await historialMedico.destroy({
-            where: { id: id }
-        });
+      where: { id: id },
+    });
     res.json({ message: 'Historial Medico eliminado correctamente' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al intentar eliminar el Historial Medico',error: error.message });
+    res.status(500).json({
+      message: 'Error al intentar eliminar el Historial Medico',
+      error: error.message,
+    });
   }
 };

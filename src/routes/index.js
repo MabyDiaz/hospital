@@ -12,6 +12,8 @@ import historialMedicoRoutes from './historialMedico.routes.js';
 import enfermeroRoutes from './enfermero.routes.js';
 import enfermeroPorSalaRoutes from './enfermeroporsala.routes.js';
 import especialidadRoutes from './especialidad.routes.js';
+import medicosRoutes from './medico.routes.js';
+import citaRoutes from './cita.routes.js';
 
 const router = Router();
 
@@ -28,5 +30,7 @@ router.use('/historialMedico', historialMedicoRoutes);
 router.use('/enfermeros', enfermeroRoutes);
 router.use('/enfermerosporsala', enfermeroPorSalaRoutes);
 router.use('/especialidades', especialidadRoutes);
+router.use('/medicos', medicosRoutes);
+router.use('/citas', citaRoutes);
 
 export default router;

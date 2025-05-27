@@ -30,3 +30,5 @@ router.delete('/:id', async (req, res) => {
   await o.destroy();
   res.sendStatus(204);
 });
+
+export default router;
