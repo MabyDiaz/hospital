@@ -1,18 +1,18 @@
 import express from 'express';
 import {
-  getAll,
-  getById,
-  create,
-  update,
-  remove
+  getEspecialidades,
+  getEspecialidadById,
+  createEspecialidad,
+  updateEspecialidad,
+  deleteEspecialidad
 } from '../controllers/especialidadController.js';
 
 const router = express.Router();
 
-router.get('/', getAll);
-router.get('/:id', getById);
-router.post('/', create);
-router.put('/:id', update);
-router.delete('/:id', remove);
+router.get('/', getEspecialidades);
+router.get('/:id', getEspecialidadById);
+router.post('/', createEspecialidad);
+router.put('/:id', updateEspecialidad);
+router.delete('/:id', deleteEspecialidad);
 
 export default router;

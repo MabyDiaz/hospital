@@ -8,6 +8,9 @@ import direccionRoutes from './direcciones.routes.js';
 import pacientePorCamaRoutes from './pacientesporcamas.routes.js';
 import tratamientoRoutes from './tratamiento.routes.js';
 import historialMedicoRoutes from './historialMedico.routes.js'
+import enfermeroRoutes from './enfermero.routes.js';
+import enfermeroPorSalaRoutes from './enfermeroPorSala.routes.js';
+import especialidadRoutes from './especialidad.routes.js';
 
 const router = Router();
 
@@ -18,7 +21,9 @@ router.use('/camas', camaRoutes);
 router.use('/contactosemergencias', contactoEmergenciaRoutes);
 router.use('/direcciones', direccionRoutes);
 router.use('/pacientesporcamas', pacientePorCamaRoutes);
-router.use('./tratamiento', tratamientoRoutes);
+router.use('/tratamiento', tratamientoRoutes);
 router.use('/historialMedico', historialMedicoRoutes);
-
+router.use('/enfermeros', enfermeroRoutes);
+router.use('/enfermerosporsala', enfermeroPorSalaRoutes);
+router.use('/especialidades', especialidadRoutes);
 export default router;
