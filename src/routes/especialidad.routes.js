@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  getEspecialidades,
+  getEspecialidad,
   getEspecialidadById,
   createEspecialidad,
   updateEspecialidad,
@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-router.get('/', getEspecialidades);
+router.get('/', getEspecialidad);
 router.get('/:id', getEspecialidadById);
 router.post('/', createEspecialidad);
 router.put('/:id', updateEspecialidad);

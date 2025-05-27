@@ -1,6 +1,6 @@
 import Especialidad from '../models/Especialidad.js';
 
-export const getAll = async (req, res) => {
+export const getEspecialidad = async (req, res) => {
   try {
     const data = await Especialidad.findAll();
     res.json(data);
@@ -9,7 +9,7 @@ export const getAll = async (req, res) => {
   }
 };
 
-export const getById = async (req, res) => {
+export const getEspecialidadById = async (req, res) => {
   try {
     const item = await Especialidad.findByPk(req.params.id);
     item ? res.json(item) : res.status(404).send('No encontrado');
@@ -18,7 +18,7 @@ export const getById = async (req, res) => {
   }
 };
 
-export const create = async (req, res) => {
+export const createEspecialidad = async (req, res) => {
   try {
     const nuevo = await Especialidad.create(req.body);
     res.status(201).json(nuevo);
@@ -27,7 +27,7 @@ export const create = async (req, res) => {
   }
 };
 
-export const update = async (req, res) => {
+export const updateEspecialidad = async (req, res) => {
   try {
     const item = await Especialidad.findByPk(req.params.id);
     if (!item) return res.status(404).send('No encontrado');
@@ -39,7 +39,7 @@ export const update = async (req, res) => {
   }
 };
 
-export const remove = async (req, res) => {
+export const deleteEspecialidad = async (req, res) => {
   try {
     const item = await Especialidad.findByPk(req.params.id);
     if (!item) return res.status(404).send('No encontrado');

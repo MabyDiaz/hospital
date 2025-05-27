@@ -1,11 +1,12 @@
 import express from 'express';
 import {
-  getEnfermeroPorSala,
-  getEnfermeroPorSalaById,
-  createEnfermeroPorSala,
-  updateEnfermeroPorSala,
-  deleteEnfermeroPorSala
+    getEnfermeroPorSala,
+    getEnfermeroPorSalaById,
+    createEnfermeroPorSala,
+    updateEnfermeroPorSala,
+    deleteEnfermeroPorSala
 } from '../controllers/enfermeroPorSalaController.js';
+  
 
 const router = express.Router();
 
